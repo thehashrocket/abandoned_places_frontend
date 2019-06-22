@@ -19,7 +19,7 @@ export default class Location extends Component {
         { location.image && <img src={ location.image } alt={ location.title } /> }
         <Title>
           <Link href={ {
-            pathname: '/item',
+            pathname: '/location',
             query: { id: location.id }
           } }>
             <a>{ location.title }</a>

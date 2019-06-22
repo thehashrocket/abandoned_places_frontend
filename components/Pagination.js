@@ -27,7 +27,7 @@ const Pagination = props => (
       return (
         <PaginationStyles>
           <Head>
-            <title>Sick Fits! { page } of { pages }</title>
+            <title>Abandoned Places! { page } of { pages }</title>
           </Head>
           <Link
             prefetch
