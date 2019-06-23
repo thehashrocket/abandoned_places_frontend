@@ -4,8 +4,8 @@ import gql from 'graphql-tag';
 import { ALL_LOCATIONS_QUERY as ALL_LOCATIONS_QUERY } from './Locations';
 
 const DELETE_LOCATION_MUTATION = gql`
-  mutation DELETE_ITEM_MUTATION($id: ID!) {
-    deleteItem(id: $id) {
+  mutation DELETE_LOCATION_MUTATION($id: ID!) {
+    deleteLocation(id: $id) {
       id
     }
   }
@@ -18,7 +18,7 @@ class DeleteLocation extends Component {
     const data = cache.readQuery({ query: ALL_LOCATIONS_QUERY });
     console.log(data, payload);
     // 2. Filter the deleted locations of the page
-    data.locations = data.locations.filter(item => item.id !== payload.data.deleteLocation.id);
+    data.locations = data.locations.filter(location => location.id !== payload.data.deleteLocation.id);
     // 3. Put the items back!
     cache.writeQuery({ query: ALL_LOCATIONS_QUERY, data });
   };

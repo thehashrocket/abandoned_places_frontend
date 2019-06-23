@@ -28,7 +28,7 @@ const CREATE_LOCATION_MUTATION = gql`
 class CreateLocation extends Component {
   state = {
     title: 'cool shoes',
-    description: 'i love this conext',
+    description: 'i love this context',
     image: 'dog.jpb',
     largeImage: 'large-dog.jpg',
   }
@@ -43,7 +43,7 @@ class CreateLocation extends Component {
     const files = e.target.files;
     const data = new FormData();
     data.append('file', files[0]);
-    data.append('upload_preset', 'abandoned');
+    data.append('upload_preset', 'sickfits');
     const res = await fetch('https://api.cloudinary.com/v1_1//chaos-elevators-inc/image/upload', { method: 'POST', body: data });
     const file = await res.json();
     console.log(file);
