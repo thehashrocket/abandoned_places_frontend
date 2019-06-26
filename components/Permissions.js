@@ -40,7 +40,7 @@ const ALL_USERS_QUERY = gql`
 const Permissions = (props) => (
   <Query query={ ALL_USERS_QUERY }>
     { ({ data, loading, error }) =>
-      console.log(data) || (
+      (
         <div>
           <Error error={ error } />
           <div>
@@ -108,19 +108,19 @@ class UserPermissions extends React.Component {
                 <tr>
                   <td>{ user.name }</td>
                   <td>{ user.email }</td>
-                  { possiblePermissions.map(permission => (
-                    <td key={ permission }>
-                      <label htmlFor={ `${user.id}-permission-${permission}` }>
-                        <input
-                          id={ `${user.id}-permission-${permission}` }
-                          type="checkbox"
-                          checked={ this.state.permissions.includes(permission) }
-                          value={ permission }
-                          onChange={ this.handlePermissionChange }
-                          />
-                      </label>
-                    </td>
-                  )) }
+                    { possiblePermissions.map(permission => (
+                      <td key={ permission }>
+                        <label htmlFor={ `${user.id}-permission-${permission}` }>
+                          <input
+                            id={ `${user.id}-permission-${permission}` }
+                            type="checkbox"
+                            checked={ this.state.permissions.includes(permission) }
+                            value={ permission }
+                            onChange={ this.handlePermissionChange }
+                            />
+                        </label>
+                      </td>
+                    )) }
                   <td>
                     <TheButton
                       type="button"
