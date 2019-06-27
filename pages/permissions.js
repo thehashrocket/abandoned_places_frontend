@@ -3,9 +3,7 @@ import Permissions from '../components/Permissions';
 
 const PermissionsPage = props => (
   <div>
-    <PleaseSignIn>
-      <Permissions />
-    </PleaseSignIn>
+    <Permissions />
   </div>
 );
 
