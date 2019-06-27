@@ -4,9 +4,7 @@ import HasPermission from '../components/HasPermission';
 
 const PermissionsPage = props => (
   <div>
-    <PleaseSignIn>
-      <Permissions />
-    </PleaseSignIn>
+    <Permissions />
   </div>
 );
 
