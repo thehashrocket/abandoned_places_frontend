@@ -56,7 +56,7 @@ const Permissions = (props) => (
                 </tr>
               </thead>
               <tbody>
-                { console.log('made it here') }
+
                 { console.log('data: ', data) }
                 { console.log('users: ', data.users) }
 
