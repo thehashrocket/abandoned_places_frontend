@@ -42,8 +42,6 @@ const Permissions = (props) => (
     { ({ data, loading, error }) =>
       (
         <div>
-          { console.log('data', data) }
-          { console.log('error', error) }
           <Error error={ error } />
           <div>
             <h2>Manage Permissions</h2>
