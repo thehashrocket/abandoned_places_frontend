@@ -40,6 +40,10 @@ const Permissions = props => (
   <Query query={ ALL_USERS_QUERY }>
     { ({ data, loading, error }) => (
       <div>
+        { console.log('data', data) }
+        { console.log('loading', loading) }
+        { console.log('error', error) }
+
         <Error error={ error } />
         <div>
           <h2>Manage Permissions</h2>
@@ -87,6 +91,7 @@ class UserPermissions extends React.Component {
   };
   render() {
     const user = this.props.user;
+    console.log('am i here')
     return (
       <Mutation
         mutation={ UPDATE_PERMISSIONS_MUTATION }
