@@ -56,7 +56,7 @@ const Permissions = props => (
                 <th>👇🏻</th>
               </tr>
             </thead>
-            <tbody>{ data.users.map(user => <UserPermissions user={ user } key={ user.id } />) }</tbody>
+            <tbody>{ !loading ? data.users.map(user => <UserPermissions user={ user } key={ user.id } />) : 'Loading' }</tbody>
           </Table>
         </div>
       </div>
