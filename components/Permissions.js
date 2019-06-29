@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 const possiblePermissions = [
   'ADMIN',
   'USER',
-  'ITEMCREATE',
-  'ITEMUPDATE',
-  'ITEMDELETE',
+  'LOCATIONCREATE',
+  'LOCATIONUPDATE',
+  'LOCATIONDELETE',
   'PERMISSIONUPDATE',
 ];
 
@@ -40,10 +40,6 @@ const Permissions = props => (
   <Query query={ ALL_USERS_QUERY }>
     { ({ data, loading, error }) => (
       <div>
-        { console.log('data', data) }
-        { console.log('loading', loading) }
-        { console.log('error', error) }
-
         <Error error={ error } />
         <div>
           <h2>Manage Permissions</h2>
@@ -76,7 +72,7 @@ class UserPermissions extends React.Component {
   state = {
     permissions: this.props.user.permissions,
   };
-  handlePermissionChange = (e) => {
+  handlePermissionChange = (e, updatePermissions) => {
     const checkbox = e.target;
     // take a copy of the current permissions
     let updatedPermissions = [...this.state.permissions];
@@ -87,11 +83,10 @@ class UserPermissions extends React.Component {
     } else {
       updatedPermissions = updatedPermissions.filter(permission => permission !== checkbox.value);
     }
-    this.setState({ permissions: updatedPermissions });
+    this.setState({ permissions: updatedPermissions }, updatePermissions);
   };
   render() {
     const user = this.props.user;
-    console.log('am i here')
     return (
       <Mutation
         mutation={ UPDATE_PERMISSIONS_MUTATION }
@@ -102,7 +97,7 @@ class UserPermissions extends React.Component {
       >
         { (updatePermissions, { loading, error }) => (
           <>
-            { error && <tr><td colspan="8"><Error error={ error } /></td></tr> }
+            { error && <tr><td colSpan="8"><Error error={ error } /></td></tr> }
             < tr >
               <td>{ user.name }</td>
               <td>{ user.email }</td>
@@ -114,7 +109,7 @@ class UserPermissions extends React.Component {
                       type="checkbox"
                       checked={ this.state.permissions.includes(permission) }
                       value={ permission }
-                      onChange={ this.handlePermissionChange }
+                      onChange={(e) => this.handlePermissionChange(e, updatePermissions)}
                     />
                   </label>
                 </td>
