@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { Mutation } from 'react-apollo';
+import { TOGGLE_SIDEBAR_MUTATION } from './Sidebar';
 import NavStyles from './styles/NavStyles';
 import User from './User';
 import Signout from './Signout';
@@ -23,6 +25,11 @@ const Nav = () => (
                 <a>Account</a>
               </Link>
               <Signout />
+              <Mutation mutation={TOGGLE_SIDEBAR_MUTATION}>
+                { (toggleSidebar) => (
+                  <button onClick={toggleSidebar}>Sidebar</button>
+                )}
+              </Mutation>
             </>
           )
         }

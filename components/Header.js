@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import Sidebar from './Sidebar';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -64,7 +65,7 @@ const Header = () => (
     <div className="sub-bar">
       <p>Search</p>
     </div>
-    <div>Cart</div>
+    <Sidebar/>
   </StyleHeader>
 );
 
